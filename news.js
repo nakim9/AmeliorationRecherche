@@ -51,24 +51,23 @@ function rechercher_nouvelles()
 	var valeurRecherche = document.getElementById("zone_saisie").value;
 	valeurRecherche = encodeURIComponent(valeurRecherche);
 	$.get("search.php?data="+valeurRecherche,maj_resultats);
+
 }
 
 
 function maj_resultats(res)
 {
 
-	var recherches=JSON.parse(rech);
+	var recherches=JSON.parse(res);
 	console.log(recherches);
 	document.getElementById('wait').style.display = "none";
-
-
-
 
 }
 
 
 function sauver_nouvelle(e)
 {
+	console.log($(e).parent().children(".titre_news"));
 
 }
 
