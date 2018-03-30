@@ -46,8 +46,9 @@ function init()
 
 function rechercher_nouvelles()
 {
-
-
+	$("#resultats").empty();
+	$("#wait").css("display","block");
+	$.get("search.php",maj_resultats());
 }
 
 
