@@ -48,13 +48,13 @@ function rechercher_nouvelles()
 {
 	$("#resultats").empty();
 	$("#wait").css("display","block");
-	$.get("search.php",maj_resultats());
+	$.get("search.php",maj_resultats);
 }
 
 
 function maj_resultats(res)
 {
-	document.getElementById('wait').style.display = "none";;
+	document.getElementById('wait').style.display = "none";
 
 }
 
