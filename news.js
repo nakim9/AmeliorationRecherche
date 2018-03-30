@@ -57,11 +57,24 @@ function rechercher_nouvelles()
 
 function maj_resultats(res)
 {
+<<<<<<< HEAD
 
 	var recherches=JSON.parse(res);
 	console.log(recherches);
 	document.getElementById('wait').style.display = "none";
 
+=======
+	document.getElementById('wait').style.display = "none";
+
+	var recherches=JSON.parse(res);
+	for(var i=0; i<recherches.length;i++){
+		document.getElementById('resultats').innerHTML += "<p class=\"titre_result\"><a class=\"titre_news\" href="+recherches[i].url+ " target=\"_blank\">"+recherches[i].titre+"</a><span class=\"date_news\">"+recherches[i].date+"</span><span class=\"action_news\" onclick=\"sauver_nouvelle(this)\">< img src=\"horloge15.jpg\"/></span></p>";
+	}
+
+
+
+
+>>>>>>> 735115b1f77a48dad885e9e09022bc0eadb3f82d
 }
 
 
