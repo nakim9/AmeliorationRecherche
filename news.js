@@ -53,7 +53,7 @@ function rechercher_nouvelles()
 
 function maj_resultats(res)
 {
-	document.getElementById('wait').setDi;
+	document.getElementById('wait').style.display = "none";;
 
 }
 
