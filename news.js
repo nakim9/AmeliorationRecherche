@@ -54,21 +54,9 @@ function rechercher_nouvelles()
 
 function maj_resultats(res)
 {
-<<<<<<< HEAD
-<<<<<<< HEAD
-	document.getElementById('wait').style.display = "none";
-=======
-<<<<<<< HEAD
 	console.log(res);
+	//recherches=JSON.parse(rech);
 	document.getElementById('wait').style.display = "none";
-=======
-	document.getElementById('wait').style.display = "none";;
->>>>>>> d0509fa52b81bff059d13116845af7b1d9822f0f
->>>>>>> bfbebbc812a7f77b140b96c10032d15bd5838a49
-=======
-	console.log(res);
-	document.getElementById('wait').style.display = "none";
->>>>>>> 052944099925fd95220944cac4baf0db9830e2e9
 
 }
 
