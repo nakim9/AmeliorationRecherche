@@ -54,12 +54,8 @@ function rechercher_nouvelles()
 
 function maj_resultats(res)
 {
-<<<<<<< HEAD
 	console.log(res);
 	document.getElementById('wait').style.display = "none";
-=======
-	document.getElementById('wait').style.display = "none";;
->>>>>>> d0509fa52b81bff059d13116845af7b1d9822f0f
 
 }
 
