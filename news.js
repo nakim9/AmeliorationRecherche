@@ -48,7 +48,9 @@ function rechercher_nouvelles()
 {
 	$("#resultats").empty();
 	$("#wait").css("display","block");
-	$.get("search.php",maj_resultats);
+	var valeurRecherche = document.getElementById("zone_saisie").value;
+	valeurRecherche = encodeURIComponent(valeurRecherche);
+	$.get("search.php?data="+valeurRecherche,maj_resultats);
 }
 
 
