@@ -54,8 +54,9 @@ function rechercher_nouvelles()
 
 function maj_resultats(res)
 {
-	console.log(res);
-	//recherches=JSON.parse(rech);
+
+	var recherches=JSON.parse(rech);
+	console.log(recherches);
 	document.getElementById('wait').style.display = "none";
 
 }
