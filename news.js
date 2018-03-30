@@ -61,6 +61,9 @@ function maj_resultats(res)
 	console.log(recherches);
 	document.getElementById('wait').style.display = "none";
 
+
+
+
 }
 
 
