@@ -70,7 +70,12 @@ function maj_resultats(res)
 	document.getElementById('wait').style.display = "none";
 
 	var recherches=JSON.parse(res);
-	var recherches_sauvgardees = JSON.parse(recherche_courante_news);
+	if(recherche_courante_news.length != 0){
+		var recherches_sauvgardees = JSON.parse(recherche_courante_news);
+	}
+	else{
+		var recherches_sauvgardees = new Array();
+	}
 	for(var i=0; i<recherches.length;i++){
 
 		var j =0;
