@@ -72,6 +72,7 @@ function maj_resultats(res)
 	var recherches=JSON.parse(res);
 	var recherches_sauvgardees = JSON.parse(recherche_courante_news);
 	for(var i=0; i<recherches.length;i++){
+<<<<<<< HEAD
 		var j =0;
 		while (j < recherches_sauvgardees.length
 			&& !(recherches_sauvgardees[j].titre == recherches[i].titre
@@ -84,6 +85,9 @@ function maj_resultats(res)
 		else{
 			$("#resultats").append("<p class=\"titre_result\"><a class=\"titre_news\" href="+recherches[i].url+ " target=\"_blank\">"+recherches[i].titre+"</a><span class=\"date_news\">"+recherches[i].date+"</span><span class=\"action_news\" onclick=\"supprimer_nouvelle(this)\"><img src=\"disk15.jpg\"/></span></p>");
 		}
+=======
+		document.getElementById('resultats').innerHTML += "<p class=\"titre_result\"><a class=\"titre_news\" href="+recherches[i].url+ " target=\"_blank\">"+recherches[i].titre+"</a><span class=\"date_news\">"+format(recherches[i].date)+"</span><span class=\"action_news\" onclick=\"sauver_nouvelle(this)\">"+decodeEntities ("<img src=\"horloge15.jpg\"/>") +"</span></p>";
+>>>>>>> 1e63bfc69ea6b5ff2beee425448d49bab5fe9893
 	}
 }
 
