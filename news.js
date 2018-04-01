@@ -60,6 +60,7 @@ function rechercher_nouvelles()
 		recherche_courante_news = nouvelles_enregistrees;
 	}
 	//envoi de le requête php de recherche
+	valeurRecherche = valeurRecherche.trim(); //trim pour enlever les espaces avant et après un string
 	valeurRecherche = encodeURIComponent(valeurRecherche);
 	$.get("search.php?data="+valeurRecherche,maj_resultats);
 }
@@ -97,15 +98,22 @@ function maj_resultats(res)
 
 function sauver_nouvelle(e)
 {
+	console.log(Array.isArray(recherche_courante_news));
+
 	recherche_courante = $("#zone_saisie").val();
 	$(e).children().attr("src","disk15.jpg"); //changement image
 	$(e).attr("onclick","supprimer_nouvelle(this)"); //changement de methode sur le clic
+	console.log(Array.isArray(recherche_courante_news));
 
 	var tmp = new Object(); //création d'un objet temporaire que l'on va passer en string
 	tmp["titre"] = $(e).parent().children(".titre_news").html(); //application du titre
 	tmp["date"] = $(e).parent().children(".date_news").html(); //application de la date
 	tmp["url"] = $(e).parent().children(".titre_news").attr("href"); //application de l'adresse
+	console.log(Array.isArray(recherche_courante_news));
+
 	if(indexOf(recherche_courante_news,tmp) == -1){ //verification pour eviter les doublons (-1 si tmp n'est pas dans la list)
+	console.log(Array.isArray(recherche_courante_news));
+
 		recherche_courante_news.push(tmp);
 	}
 	setCookie(recherche_courante,JSON.stringify(recherche_courante_news),1000);
