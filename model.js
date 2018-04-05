@@ -14,7 +14,25 @@ model.init=function(){
 model.ajouter_recherche=function(valeurRecherche){
   if(recherches.indexOf(valeurRecherche)==-1){
 		recherches.push(valeurRecherche);
-		document.getElementById('recherches-stockees').innerHTML += "<p class=\"titre-recherche\"><label onclick=\"selectionner_recherche(this)\" >"+valeurRecherche+" </label><img src=\"croix30.jpg\" class=\"icone-croix\" onclick=\"supprimer_recherche(this)\" /> </p>";
     setCookie("recherches",JSON.stringify(recherches),1000);
   }
+}
+model.supprimer_recherche =function(recherche){
+  console.log(recherches.indexOf(recherche));//pas fonctionnelle
+  recherches.splice(indexOf(recherches,recherche),1);
+}
+
+
+model.getRecherches = function(){
+  return recherches;
+}
+
+model.getRecherche_courante_news= function(){
+  return recherche_courante_news;
+}
+
+model.miseAJourRecherche_courante_news=function(nouvelles_enregistrees){
+	if(nouvelles_enregistrees != ""){
+		recherche_courante_news = nouvelles_enregistrees;
+	}
 }
