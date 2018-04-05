@@ -4,8 +4,10 @@ var recherche_courante_news=[]; // tableau d'objets de type resultats (avec titr
 
 function ajouter_recherche()
 {
+	console.log(recherches);
 	recherche_courante = $("#zone_saisie").val();
-	if(recherches.indexOf(recherche_courante)==-1){
+	if(indexOf(recherches,recherche_courante)==-1){
+		console.log(recherches);
 		recherches.push(recherche_courante);
 		document.getElementById('recherches-stockees').innerHTML += "<p class=\"titre-recherche\"><label onclick=\"selectionner_recherche(this)\" >"+recherche_courante+" </label><img src=\"croix30.jpg\" class=\"icone-croix\" onclick=\"supprimer_recherche(this)\" /> </p>";
 	}
