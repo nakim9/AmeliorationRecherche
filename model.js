@@ -28,11 +28,19 @@ model.getRecherches = function(){
 }
 
 model.getRecherche_courante_news= function(){
-  return recherche_courante_news;
+  return model.recherche_courante_news;
 }
 
 model.miseAJourRecherche_courante_news=function(nouvelles_enregistrees){
 	if(nouvelles_enregistrees != ""){
 		recherche_courante_news = nouvelles_enregistrees;
 	}
+}
+
+model.setRecherche_courante=function(rech){
+  model.recherche_courante=rech;
+}
+
+model.setRecherche_courante_news=function(news){
+  model.recherche_courante_news=news;
 }

@@ -14,10 +14,18 @@ view.getZone_Saisie=function(){
 view.enleverChargement=function(){
 	document.getElementById('wait').style.display = "none";
 }
-
-view.addNouvelleSauvegarde= function(){
-  $("#resultats").append("<p class=\"titre_result\"><a class=\"titre_news\" href="+recherches[i].url+ " target=\"_blank\">"+recherches[i].titre+"</a><span class=\"date_news\">"+recherches[i].date+"</span><span class=\"action_news\" onclick=\"supprimer_nouvelle(this)\"><img src=\"disk15.jpg\"/></span></p>");
+view.ajouterChargement = function(){
+	$("#wait").css("display","block");
 }
-view.addNouvelle= function(){
-  $("#resultats").append("<p class=\"titre_result\"><a class=\"titre_news\" href="+recherches[i].url+ " target=\"_blank\">"+recherches[i].titre+"</a><span class=\"date_news\">"+recherches[i].date+"</span><span class=\"action_news\" onclick=\"sauver_nouvelle(this)\"><img src=\"horloge15.jpg\"/></span></p>");
+
+view.addNouvelleSauvegarde= function(a,b,c){
+  $("#resultats").append("<p class=\"titre_result\"><a class=\"titre_news\" href="+a+ " target=\"_blank\">"+b+"</a><span class=\"date_news\">"+c+"</span><span class=\"action_news\" onclick=\"supprimer_nouvelle(this)\"><img src=\"disk15.jpg\"/></span></p>");
+}
+view.addNouvelle= function(a,b,c){
+  $("#resultats").append("<p class=\"titre_result\"><a class=\"titre_news\" href="+a+ " target=\"_blank\">"+b+"</a><span class=\"date_news\">"+c+"</span><span class=\"action_news\" onclick=\"sauver_nouvelle(this)\"><img src=\"horloge15.jpg\"/></span></p>");
+}
+
+view.setZone_saisie= function(recherche_courante){
+
+	$("#zone_saisie").val(recherche_courante);
 }

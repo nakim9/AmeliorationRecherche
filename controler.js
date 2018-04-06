@@ -21,11 +21,26 @@ controler.init =function()
 	setCookie("recherches",JSON.stringify(model.getRecherches()),1000);
 
 }
+
+controler.selectionner_recherche=function(e)
+{
+  model.setRecherche_courante($(e).html());
+  view.setZone_saisie(recherche_courante);
+	var res = getCookie(recherche_courante);
+	if(res!=""){
+    model.setRecherche_courante_news(JSON.parse(res));
+	}
+	$("#resultats").empty();//jjjjjjjjjj
+	for (var i=0 ; i<recherche_courante_news.length ; i++){
+		$("#resultats").append("<p class=\"titre_result\"><a class=\"titre_news\" href="+recherche_courante_news[i].url+ " target=\"_blank\">"+recherche_courante_news[i].titre+"</a><span class=\"date_news\">"+recherche_courante_news[i].date+"</span><span class=\"action_news\" onclick=\"supprimer_nouvelle(this)\"><img src=\"disk15.jpg\"/></span></p>");
+	}
+}
+
 controler.rechercher_nouvelles=function()
 {
-	$("#resultats").empty();
-	$("#wait").css("display","block");
-	var valeurRecherche = $("#zone_saisie").val();
+	$("#resultats").empty();//jjjjjjjj
+  view.ajouterChargement();
+	var valeurRecherche = view.getZone_Saisie();
 	//Mise à jour de recherche_courante_news si un cookie existe
   model.miseAJourRecherche_courante_news(getCookie(valeurRecherche));
 	//envoi de le requête php de recherche
@@ -54,10 +69,10 @@ controler.maj_resultats=function(res)
 				j++;
 		}
 		if(j == recherches_sauvgardees.length){
-			view.addNouvelle();
+			view.addNouvelle(recherches[i].url,recherches[i].titre,recherches[i].date);
 		}
 		else{
-			view.addNouvelleSauvegarde();
+			view.addNouvelleSauvegarde(recherches[i].url,recherches[i].titre,recherches[i].date);
 		}
 
 	}
