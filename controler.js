@@ -30,7 +30,7 @@ controler.selectionner_recherche=function(e)
 	if(res!=""){
     model.setRecherche_courante_news(JSON.parse(res));
 	}
-	$("#resultats").empty();//jjjjjjjjjj
+	$("#resultats").empty();////Je sais pas trop a quoi sa sert et ou le metre
 	for (var i=0 ; i<model.getRecherche_courante_news().length ; i++){
     view.afficheRecherche_courante_news(model.getRecherche_courante_news(),i);
 	}
@@ -38,7 +38,7 @@ controler.selectionner_recherche=function(e)
 
 controler.rechercher_nouvelles=function()
 {
-	$("#resultats").empty();//jjjjjjjj
+	$("#resultats").empty();//Je sais pas trop a quoi sa sert et ou le metre
   view.ajouterChargement();
 	var valeurRecherche = view.getZone_Saisie();
 	//Mise à jour de recherche_courante_news si un cookie existe
