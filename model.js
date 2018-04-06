@@ -22,7 +22,9 @@ model.supprimer_recherche =function(recherche){
   recherches.splice(indexOf(recherches,recherche),1);
 }
 
-
+model.getRecherche_courante = function(){
+  return model.recherche_courante;
+}
 model.getRecherches = function(){
   return recherches;
 }
@@ -43,4 +45,11 @@ model.setRecherche_courante=function(rech){
 
 model.setRecherche_courante_news=function(news){
   model.recherche_courante_news=news;
+}
+model.pushRecherche_courante_news=function(tmp){
+  model.recherche_courante_news.push(tmp)
+}
+
+model.supprRecherche_courante_news=function(tmp){
+  model.recherche_courante_news.splice(indexOf(model.recherche_courante_news,tmp),1); //supprime l'objet
 }

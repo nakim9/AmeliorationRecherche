@@ -18,14 +18,28 @@ view.ajouterChargement = function(){
 	$("#wait").css("display","block");
 }
 
-view.addNouvelleSauvegarde= function(a,b,c){
-  $("#resultats").append("<p class=\"titre_result\"><a class=\"titre_news\" href="+a+ " target=\"_blank\">"+b+"</a><span class=\"date_news\">"+c+"</span><span class=\"action_news\" onclick=\"supprimer_nouvelle(this)\"><img src=\"disk15.jpg\"/></span></p>");
+view.addNouvelleSauvegarde= function(recherche){
+  $("#resultats").append("<p class=\"titre_result\"><a class=\"titre_news\" href="+recherche.url+ " target=\"_blank\">"+recherche.titre+"</a><span class=\"date_news\">"+recherche.date+"</span><span class=\"action_news\" onclick=\"controler.supprimer_nouvelle(this)\"><img src=\"disk15.jpg\"/></span></p>");
 }
-view.addNouvelle= function(a,b,c){
-  $("#resultats").append("<p class=\"titre_result\"><a class=\"titre_news\" href="+a+ " target=\"_blank\">"+b+"</a><span class=\"date_news\">"+c+"</span><span class=\"action_news\" onclick=\"sauver_nouvelle(this)\"><img src=\"horloge15.jpg\"/></span></p>");
+view.addNouvelle= function(recherche){
+  $("#resultats").append("<p class=\"titre_result\"><a class=\"titre_news\" href="+recherche.url+ " target=\"_blank\">"+recherche.titre+"</a><span class=\"date_news\">"+recherche.date+"</span><span class=\"action_news\" onclick=\"controler.sauver_nouvelle(this)\"><img src=\"horloge15.jpg\"/></span></p>");
 }
 
 view.setZone_saisie= function(recherche_courante){
-
 	$("#zone_saisie").val(recherche_courante);
+}
+
+view.afficheRecherche_courante_news=function(recherche_courante_news,i){
+  $("#resultats").append("<p class=\"titre_result\"><a class=\"titre_news\" href="+recherche_courante_news[i].url+ " target=\"_blank\">"+recherche_courante_news[i].titre+"</a><span class=\"date_news\">"+recherche_courante_news[i].date+"</span><span class=\"action_news\" onclick=\"supprimer_nouvelle(this)\"><img src=\"disk15.jpg\"/></span></p>");
+}
+
+view.sauver_nouvelle=function(e){
+  $(e).children().attr("src","disk15.jpg"); //changement image
+  $(e).attr("onclick","controler.supprimer_nouvelle(this)"); //changement de methode sur le clic
+}
+
+view.supprimer_nouvelle=function(e){
+
+	$(e).children().attr("src","horloge15.jpg");//changement image
+	$(e).attr("onclick","controler.sauver_nouvelle(this)"); //changement de methode sur le clic
 }
